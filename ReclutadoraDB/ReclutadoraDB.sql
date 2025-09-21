@@ -33,7 +33,7 @@ GO
         Nombre NVARCHAR(50) NOT NULL,
         Email NVARCHAR(320) NOT NULL, -- 320 es el limite teorico de caracteres para un e-mail
         Contrasenia NVARCHAR(100) NOT NULL,
-        ACTIVO BIT DEFAULT 1
+        Activo BIT DEFAULT 1
     );
 
     CREATE TABLE RolUsuarios(
