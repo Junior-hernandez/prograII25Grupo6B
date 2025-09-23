@@ -1,0 +1,23 @@
+# Compilados
+*.class
+*.jar
+*.war
+*.ear
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+*.project
+*.classpath
+*.settings/
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# SO
+.DS_Store
+Thumbs.db
