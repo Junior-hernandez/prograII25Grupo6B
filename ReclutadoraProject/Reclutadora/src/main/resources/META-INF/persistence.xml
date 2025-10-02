@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="ProgramacionDos_Reclutadora_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Postulaciones</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Roles</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.UsuarioEmpresa</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Postulantes</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Empresas</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Curriculums</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.RolUsuario</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Habilidades</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.RolPermiso</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.UsuarioPostulante</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Usuarios</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Ofertas</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Logs</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.HabilidadPostulante</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Bitacoras</class>
+    <class>programaciondos.reclutadora.Infrasctructure.Persistence.Models.Permisos</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=ReclutadoraDB;User=sa;Password=quesejodanlostemblores!8;TrustServerCertificate=True;"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="quesejodanlostemblores!8"/>
+    </properties>
+  </persistence-unit>
+</persistence>
