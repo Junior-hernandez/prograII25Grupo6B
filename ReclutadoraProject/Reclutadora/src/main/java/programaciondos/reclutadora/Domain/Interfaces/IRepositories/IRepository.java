@@ -7,5 +7,5 @@ public interface IRepository<T> {
 	T GetById(int id);
 	void Add(T value);
 	void Edit(T value);
-	void Delete(int id);
+	void Delete(T value);
 }
