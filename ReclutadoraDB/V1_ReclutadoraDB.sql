@@ -51,6 +51,23 @@
         CONSTRAINT FK_RolUsuarios_Usuarios FOREIGN KEY(IdUsuario) REFERENCES Usuarios(IdUsuario),
         CONSTRAINT UQ_RolUsuario_IdRol_IdUsuario UNIQUE(IdRol, IdUsuario)
     );
+    
+    GO
+    
+    --STORED PROCEDURES
+        -- Validar el inicio de sesión
+        CREATE PROCEDURE sp_ValidateUser
+            @email NVARCHAR(320),
+            @contrasenia NVARCHAR(100)
+        AS
+        BEGIN
+            SET NOCOUNT ON;
+
+            SELECT TOP 1 * 
+            FROM Usuarios 
+            WHERE email = @email AND contrasenia = @contrasenia;
+        END
+        GO
 
 -- Empresas y Postulantes
 
@@ -154,3 +171,4 @@
         Error NVARCHAR(250) NOT NULL,
         Descripcion NVARCHAR(MAX) NOT NULL -- Max para el Stack Trace
     );
+
