@@ -1,5 +1,4 @@
 package programaciondos.reclutadora.Application.Services;
-//
 
 import java.util.List;
 import javax.persistence.PersistenceException;
