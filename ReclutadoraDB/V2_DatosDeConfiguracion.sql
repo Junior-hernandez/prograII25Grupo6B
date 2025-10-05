@@ -1,3 +1,5 @@
+USE ReclutadoraDB;
+GO
 -- SEGURIDAD
     INSERT INTO Permisos (Nombre, Descripcion)
     VALUES
