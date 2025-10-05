@@ -1,6 +1,9 @@
 package programaciondos.reclutadora.Application.Services;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceException;
 import programaciondos.reclutadora.Application.Exceptions.EntityNotFoundException;
 import programaciondos.reclutadora.Domain.Interfaces.IRepositories.IRepository;
@@ -71,5 +74,26 @@ public class UsuariosService {
 			throw new EntityNotFoundException("No se pudo encontrar el usuario con id: " + id );
 
 		_repo.Delete(usuario);
+	}
+	
+	public Usuarios ValidateUsuario(EntityManager em, String email, String contrasenia){
+		if(email == null || contrasenia == null)
+			throw new IllegalArgumentException("El usuario y contrasenia no pupeden ser nulo");
+		
+		try{
+			
+			var sp = em.createStoredProcedureQuery("sp_ValidateUser", Usuarios.class);
+			sp.registerStoredProcedureParameter("email", String.class, ParameterMode.IN);
+			sp.registerStoredProcedureParameter("contrasenia", String.class, ParameterMode.IN);
+
+			sp.setParameter("email", email);
+			sp.setParameter("contrasenia", contrasenia);
+
+			return (Usuarios) sp.getSingleResult();
+		}catch(NoResultException ex) {
+			return null;
+		}
+				
+		
 	}
 }
