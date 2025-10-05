@@ -14,8 +14,7 @@ import programaciondos.reclutadora.Application.Services.PostulantesService;
 import programaciondos.reclutadora.Application.Services.UsuariosService;
 import programaciondos.reclutadora.Infrasctructure.Persistence.Models.Postulantes;
 import programaciondos.reclutadora.Infrasctructure.Persistence.Models.Usuarios;
-import programaciondos.reclutadora.Infrastructure.Persistence.Models.Postulantes;
-import programaciondos.reclutadora.Infrastructure.Persistence.Models.Usuarios;
+
 
 public class MenuPostulante {
 
@@ -32,7 +31,7 @@ public class MenuPostulante {
         this.usuariosService = usuariosService;
         this.usuarioLogueado = usuarioLogueado;
         
-        this.perfilPostulante = this.postulantesService.GetById(usuarioLogueado.getId());
+//		this.perfilPostulante = this.postulantesService.GetById(usuarioLogueado.getId());
         
         this.scanner = new Scanner(System.in);
     }
@@ -119,7 +118,7 @@ public class MenuPostulante {
     
     private void verMiCuenta() {
         System.out.println("\n--- DATOS DE MI CUENTA ---");
-        System.out.println("Correo Electrónico: " + usuarioLogueado.getCorreo());
+        System.out.println("Correo Electrónico: " + usuarioLogueado.getEmail());
         System.out.println("Contraseña: ********");
         
         System.out.print("¿Desea cambiar su contraseña? (si/no): ");
