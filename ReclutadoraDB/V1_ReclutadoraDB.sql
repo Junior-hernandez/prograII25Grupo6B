@@ -153,6 +153,14 @@
         CONSTRAINT UQ_Postulaciones_IdPostulante_IdOferta UNIQUE(IdPostulante, IdOferta)
     );
 
+    GO
+    --STORE PROCEDURES
+    CREATE PROCEDURE sp_GetOfertas 
+    AS 
+    BEGIN
+        SELECT * FROM Ofertas;
+    END
+    GO
 -- Logs y Bitacora
 
     CREATE TABLE Bitacoras(

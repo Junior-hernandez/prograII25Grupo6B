@@ -5,6 +5,7 @@ import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioLoginReq
 import programaciondos.reclutadora.Application.Exceptions.InvalidCredentialsException;
 import programaciondos.reclutadora.Application.Exceptions.UserForbiddenException;
 import programaciondos.reclutadora.Application.Services.AuthService;
+import programaciondos.reclutadora.Presentation.Menus.Empresa.MenuEmpresas;
 import programaciondos.reclutadora.Presentation.Menus.Postulante.MenuPostulantes;
 
 public class AuthController {
@@ -14,8 +15,9 @@ public class AuthController {
 	}
 	
 	public void iniciarSesion(UsuarioLoginRequestDTO usrLogin){
+		var em = _emf.createEntityManager();
+		
 		try{
-			var em = _emf.createEntityManager();
 			var auth = new AuthService(em);
 
 			var usuario = auth.IniciarSesion(usrLogin);
@@ -24,17 +26,24 @@ public class AuthController {
 
 			switch (rol.getNombre().toUpperCase()) {
 				case "ADMIN" -> {}
-				case "EMPRESA" -> {}
+				case "EMPRESA" -> {
+					var menuEmpresas = new MenuEmpresas(usuario);
+					menuEmpresas.Principal();
+					
+				}
 				case "POSTULANTE" -> {
-					var menuPostulantes = new MenuPostulantes(usuario);
+					var menuPostulantes = new MenuPostulantes(usuario, _emf);
 					menuPostulantes.Principal();
+					
 				}
 				default -> throw new UserForbiddenException("El usuario no tiene un rol valido");
-			}
+			}			
 		}catch(UserForbiddenException | InvalidCredentialsException | IllegalArgumentException ex){
 			System.out.println(ex.getMessage());
 		}catch(Exception ex){
 			System.out.println("Parece que hubo un problema, intentalo mas tarde");
+		}finally{
+			em.close();
 		}
 	}
 	

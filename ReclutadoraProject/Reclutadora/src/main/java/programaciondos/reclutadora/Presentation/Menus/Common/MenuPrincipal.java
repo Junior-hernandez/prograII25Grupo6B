@@ -127,8 +127,8 @@ public class MenuPrincipal {
 				var usuarioLogin = new UsuarioLoginRequestDTO(email, contrasenia);
 				
 				_auth.iniciarSesion(usuarioLogin);
-								
 				
+				break;
 			}catch(Exception ex){
 				System.out.println("Algo salio mal :c  vuelve a intentar");
 				input.next();
