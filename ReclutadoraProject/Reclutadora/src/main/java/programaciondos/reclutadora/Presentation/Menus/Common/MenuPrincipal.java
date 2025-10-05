@@ -1,10 +1,17 @@
-package programaciondos.reclutadora.Presentation.Common;
+package programaciondos.reclutadora.Presentation.Menus.Common;
 
 import java.util.Scanner;
+import javax.persistence.EntityManagerFactory;
 import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioLoginRequestDTO;
+import programaciondos.reclutadora.Presentation.Controllers.AuthController;
 
 public class MenuPrincipal {
 	private static final Scanner input = new Scanner(System.in); 
+	private final AuthController _auth;
+	
+	public MenuPrincipal(EntityManagerFactory emf){
+		_auth = new AuthController(emf);
+	}
 	
 	public void mostrarMenu(){
 			
@@ -42,7 +49,7 @@ public class MenuPrincipal {
 		}while(true);
 	}
 	
-	public static void registrar(){
+	public void registrar(){
 		do{
 			try{
 				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -78,7 +85,7 @@ public class MenuPrincipal {
 	}
 	
 	
-	public static void registrarEmpresa(){
+	public void registrarEmpresa(){
 		try{
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			System.out.println("PU PI PU PI.-..--..... \nListo! ya estas registrado como empresa :D");
@@ -89,7 +96,7 @@ public class MenuPrincipal {
 		}
 	}
 	
-	public static void registrarPostulante(){
+	public void registrarPostulante(){
 		try{
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			System.out.println("PU PI PU PI.-..--..... \nListo! ya estas registrado como postulante :D");
@@ -101,7 +108,7 @@ public class MenuPrincipal {
 	}
 	
 	
-	public static void logIn(){
+	public void logIn(){
 		do{
 			try{
 				input.nextLine();
@@ -119,8 +126,8 @@ public class MenuPrincipal {
 
 				var usuarioLogin = new UsuarioLoginRequestDTO(email, contrasenia);
 				
-				
-				// Aqui se va a llamar al AuthService xd
+				_auth.iniciarSesion(usuarioLogin);
+								
 				
 			}catch(Exception ex){
 				System.out.println("Algo salio mal :c  vuelve a intentar");
