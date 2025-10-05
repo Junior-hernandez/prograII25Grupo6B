@@ -1,10 +1,13 @@
 package programaciondos.reclutadora.Presentation.Controllers;
 
 import javax.persistence.EntityManagerFactory;
+import programaciondos.reclutadora.Application.DTOs.PostulantesDTOs.PostulanteRequestDTO;
 import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioLoginRequestDTO;
+import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioRequestDTO;
 import programaciondos.reclutadora.Application.Exceptions.InvalidCredentialsException;
 import programaciondos.reclutadora.Application.Exceptions.UserForbiddenException;
 import programaciondos.reclutadora.Application.Services.AuthService;
+import programaciondos.reclutadora.Infrasctructure.Persistence.Models.Postulantes;
 import programaciondos.reclutadora.Presentation.Menus.Empresa.MenuEmpresas;
 import programaciondos.reclutadora.Presentation.Menus.Postulante.MenuPostulantes;
 
@@ -47,6 +50,12 @@ public class AuthController {
 		}
 	}
 	
+	
+	public Postulantes registrarPostulante(UsuarioRequestDTO usrDto, PostulanteRequestDTO posDto ){
+		var em = _emf.createEntityManager();
+		var auth = new AuthService(em);
+		return auth.RegistrarsePostulante(usrDto, posDto);		
+	}
 	
 //	public Empresas registrarEmpresa(UsuarioRequestDTO usrDTO, EmpresaRequestDTO empDTO){
 //		var em = _emf.createEntityManager();

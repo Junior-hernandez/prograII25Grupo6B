@@ -2,14 +2,20 @@ package programaciondos.reclutadora.Presentation.Menus.Common;
 
 import java.util.Scanner;
 import javax.persistence.EntityManagerFactory;
+import programaciondos.reclutadora.Application.DTOs.PostulantesDTOs.PostulanteRequestDTO;
 import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioLoginRequestDTO;
+import programaciondos.reclutadora.Application.DTOs.UsuariosDTOs.UsuarioRequestDTO;
 import programaciondos.reclutadora.Presentation.Controllers.AuthController;
+import programaciondos.reclutadora.Presentation.Menus.Postulante.MenuPostulante;
+import programaciondos.reclutadora.Presentation.Menus.Postulante.MenuPostulantes;
 
 public class MenuPrincipal {
 	private static final Scanner input = new Scanner(System.in); 
 	private final AuthController _auth;
+	private final EntityManagerFactory _emf;
 	
 	public MenuPrincipal(EntityManagerFactory emf){
+		_emf = emf;
 		_auth = new AuthController(emf);
 	}
 	
@@ -98,8 +104,39 @@ public class MenuPrincipal {
 	
 	public void registrarPostulante(){
 		try{
+			
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			System.out.println("PU PI PU PI.-..--..... \nListo! ya estas registrado como postulante :D");
+			
+				System.out.println("Ingresa tu nombre de usuario: ");
+				var username = input.nextLine();
+				
+				System.out.println("Ingresa tu correo: "); 
+				var email = input.nextLine();
+
+				System.out.println("Ingresa tu contrasenia: "); 
+				var contrasenia = input.nextLine();
+				
+				
+				
+				var usuarioDto = new UsuarioRequestDTO(username, email, contrasenia);
+				
+				System.out.println("Ingresa tu nombre completo: ");
+				var nombre = input.nextLine();
+				
+				System.out.println("Ahora ingresa una pequeña biografia ");
+				var biografia = input.nextLine();
+				
+				var postulanteDto = new PostulanteRequestDTO(nombre, biografia);
+			
+				var postulante = _auth.registrarPostulante(usuarioDto, postulanteDto);
+				var usuario = postulante.getUsuarioPostulanteList().get(0).getIdUsuario();
+				
+				var menuPostulante = new MenuPostulantes(usuario, _emf );
+				// Registrar el postulante 
+				
+				
+			System.out.println("PU PI PU PI.-..--..... ");
+			
 			input.next();
 			
 		}catch(Exception ex){

@@ -12,6 +12,11 @@ public class PostulanteRequestDTO {
 	private String Nombre;
 	private String Biografia;
 
+	public PostulanteRequestDTO(String nombre, String biografia){
+		Nombre = nombre;
+		Biografia = biografia;
+	}
+	
 	public String getNombre() {
 		return Nombre;
 	}

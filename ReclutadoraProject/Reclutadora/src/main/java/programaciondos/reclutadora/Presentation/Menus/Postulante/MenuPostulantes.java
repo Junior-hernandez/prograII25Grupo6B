@@ -69,8 +69,8 @@ public class MenuPostulantes {
 					System.out.println("Descripcion: " + oferta.getDescripcion() + "\n");
 				}
 						
-				System.out.println("2. postularse");
-				System.out.println("1 Salir");
+				System.out.println("1. postularse");
+				System.out.println("2 Salir");
 
 				opcion = Integer.parseInt(input.next());
 				switch(opcion) {

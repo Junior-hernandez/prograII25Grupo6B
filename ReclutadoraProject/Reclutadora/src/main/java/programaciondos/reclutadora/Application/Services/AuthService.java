@@ -89,7 +89,7 @@ public class AuthService {
 	}
 	
 	// También Considerar pasar estos metodos a una clase separada por la logica extensa
-	public void RegistrarsePostulante(UsuarioRequestDTO usuarioDto, PostulanteRequestDTO postulanteRequest){
+	public Postulantes RegistrarsePostulante(UsuarioRequestDTO usuarioDto, PostulanteRequestDTO postulanteRequest){
 		try{
 			
 			// Instanciacion de las entidades
@@ -116,6 +116,8 @@ public class AuthService {
 			_usrPosService.Add(usuarioPostulante);
 
 			_em.getTransaction().commit();
+			
+			return postulante;
 			
 		}catch(Exception ex){
 			if(_em.getTransaction().isActive()) _em.getTransaction().rollback();
