@@ -74,3 +74,4 @@ nb-configuration.xml
 log/
 *.log
 
+maven-wrapper.jar
