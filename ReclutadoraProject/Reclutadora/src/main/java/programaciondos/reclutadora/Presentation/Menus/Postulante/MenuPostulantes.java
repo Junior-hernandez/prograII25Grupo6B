@@ -98,7 +98,7 @@ public class MenuPostulantes {
 	}
 
 	private void verMiCuenta() {
-		throw new UnsupportedOperationException("Not supported yet."); 
+		
 	}
 	
 }

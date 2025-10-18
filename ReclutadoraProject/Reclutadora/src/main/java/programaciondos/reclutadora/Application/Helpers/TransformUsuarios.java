@@ -9,7 +9,7 @@ public class TransformUsuarios {
 		usuario.setNombre(dto.getNombre());
 		usuario.setEmail(dto.getEmail());
 		usuario.setContrasenia(dto.getContrasenia());
-		
+		usuario.setActivo(true);
 		return usuario;
 	}
 }

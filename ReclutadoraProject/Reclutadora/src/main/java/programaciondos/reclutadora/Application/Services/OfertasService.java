@@ -15,7 +15,6 @@ public class OfertasService {
 			
 			var sp = em.createStoredProcedureQuery("sp_GetOfertas", Ofertas.class);
 			
-
 			return (List<Ofertas>) sp.getResultList();
 		}catch(NoResultException ex) {
 			return null;
