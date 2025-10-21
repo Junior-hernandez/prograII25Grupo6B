@@ -1,0 +1,20 @@
+[
+	{
+		"idEmpresa": 1,
+		"nombre": "BAC Credomatic",
+		"biografia": "Somos una empresa bancaria muy reconocida en el continente de América Central",
+		"direccion": "América Central"
+	},
+	{
+		"idEmpresa": 2,
+		"nombre": "Navitech",
+		"biografia": "Somos una empresa de mierda",
+		"direccion": "Parque industrial ZETA, Zona Franca"
+	},
+	{
+		"idEmpresa": 3,
+		"nombre": "Hoosier Manufacturing",
+		"biografia": "Somos la Indiana",
+		"direccion": "A la par de la plaza Flores de lago, hasta el fondo"
+	}
+]
