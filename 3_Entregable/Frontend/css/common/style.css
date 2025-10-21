@@ -37,7 +37,22 @@
     .btn-primary:hover{
         background-color: var(--color-primary-dark);
     }
-
+    
+    .btn-back{
+        background-color: var(--color-secondary);
+        background-color: white;
+        color: #ffffff;
+        color: #000;
+        margin: 0 3rem;
+        padding: 1rem 2rem;
+        border-radius: 3rem;
+        border: .2rem solid #11161b ;
+        transition: background-color .3s ease-out;
+    }
+    .btn-back:hover{
+        background-color: #2f3031;
+        color: white;
+    }
 /* Globales */
     .container-principal{
         margin: 0rem 1rem;
@@ -84,6 +99,26 @@
         /* border-radius: 4rem; */
         margin-top: 1rem;
     }
+
+
+/* tabla de contenido */
+table {
+      border-collapse: collapse;
+      width: 90%;
+      margin: 2rem auto;
+      background-color: #212a33;
+    }
+    th, td {
+      border: .1rem solid #ffffff;
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #00070d;
+      color: white;
+    }
+
+
 /* footer */
 footer{
     background-color: #0a0d10;

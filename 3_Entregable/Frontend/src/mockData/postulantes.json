@@ -1,0 +1,17 @@
+[
+    {
+        "idPostulante": 1,
+        "nombre" : "Junior Hernandez",
+        "biografia" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit"
+    },
+    {
+        "idPostulante": 2,
+        "nombre" : "Deyvid Hernández",
+        "biografia" : "Qui accusantium debitis perspiciatis asperiores illo totam aliquam."
+    },
+    {
+        "idPostulante": 3,
+        "nombre" : "Byron Ben",
+        "biografia" : "sit amet consectetur, adipisicing elit. am iet ratione, expedita facilis. ebitis"
+    }
+]
