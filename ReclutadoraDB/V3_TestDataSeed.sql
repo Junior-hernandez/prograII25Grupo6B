@@ -25,4 +25,4 @@ INSERT INTO UsuarioEmpresa(IdUsuario, IdEmpresa)
 VALUES (3,1)
 
 INSERT INTO Ofertas(IdEmpresa, Titulo, Descripcion, Salario)
-VALUES (1, 'Developer', 'Developear', 11500);
+VALUES (1, 'Developer', 'Developear dia y noche', 11500);
