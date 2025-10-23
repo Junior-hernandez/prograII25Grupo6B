@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Postulante</title>
+
+    <link rel="stylesheet" href="../css/common/normalizer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="../css/common/style.css">
+    
 </head>
 <body>
     <header>
@@ -13,25 +17,28 @@
         <p>Bienvenido al módulo de postulantes</p>
     </header>
     
-    <nav class="nav-principal">
-    </nav>
-
     <section class="container">
         <h2>Lista de postulantes</h2>
-        <p>Gestione los postulantes desde acá</p>
+        <div class="info">
+            <p>Gestione los postulantes desde acá</p>
+            <button id="btn-add" class="btn-add" type="button" href="postulanteAdd.html"><i class=" fa fa-add"></i></button>
+        </div>
         <hr>
     </section>
-     <div class="table-container container">
-            <table>
-                <thead>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Biografía</th>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
+    <div class="table-container container">
+        
+        
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Biografía</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
     <footer>&copy 6th Group</footer>
 </body>
 <script src="/js/postulante.js"></script>

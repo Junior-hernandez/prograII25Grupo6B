@@ -1,11 +1,17 @@
 /* configuracion */
     :root{
-        --color-primary: #247ac5;
+        --color-primary-2: #247ac5;
         --color-primary: #0a9b6b;
         --color-primary-dark: #2f5bad;
         --color-primary-dark: #1b9fa1;
         --color-secondary: #2a363b;
         --color-background-dark:  #11161b;
+        --color-font-light: #fff;
+        --color-font-dark: #000;
+
+        --color-table-background: #212a33;
+        --color-table-header: #00070d;
+        --color-table-border: rgb(0, 97, 177);
     }
 
 /* snippet para aplicar box-sizing por default */
@@ -62,7 +68,7 @@
         margin: 0 auto;
     }
     a{
-        color: #000000; 
+        color: var(--color-font-dark); 
         text-decoration: none;
     }
     h1{
@@ -75,6 +81,20 @@
     h3{
         font-size: 3rem;
     }
+
+    button{
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin: 0 .7rem;
+        font-size: 2rem;
+        transition: 0.2s;
+    }
+
+    button:hover{
+        transform: scale(1.1);
+    }
+
 
 /* header */
     header{
@@ -93,7 +113,7 @@
     .nav-principal{
         display: flex;
         background-color: #2a363b;
-        color: #ffffff;
+        color: var(--color-font-light);
         flex-direction: row;
         justify-content: center;
         /* border-radius: 4rem; */
@@ -101,23 +121,53 @@
     }
 
 
+    .info{
+       display: flex;
+       justify-content: space-between;
+       margin: 0 auto;
+       width: 90%;
+       height: 4rem;
+    }
+    .info button{
+       flex-basis: 7%;
+    }
+
 /* tabla de contenido */
 table {
       border-collapse: collapse;
       width: 90%;
       margin: 2rem auto;
-      background-color: #212a33;
+      background-color: var(--color-table-background);
     }
     th, td {
-      border: .1rem solid #ffffff;
+      border: .1rem solid var(--color-table-border);
       padding: 1rem;
       text-align: left;
     }
     th {
-      background-color: #00070d;
-      color: white;
+      background-color: var(--color-table-header);
+      color: var(--color-font-light);
+    }
+    
+    /* botones de accion de tabla*/
+    .td-acciones, .td-id{
+        text-align: center;
+        background-color: var(--color-table-header);
     }
 
+    .btn-add{
+        background-color: var(--color-primary-2);
+        border-radius: 1.5rem;
+        color: var(--color-table-header);
+        font-size: 3rem;
+        text-align: center;
+    }
+    .btn-editar i {
+        color:#F1A524;
+    }
+    .btn-eliminar i{
+        color:#FF6D7A;
+    }
 
 /* footer */
 footer{
