@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar empresas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/common/normalizer.css">
+    <link rel="stylesheet" href="../css/common/style.css">
+    <link rel="stylesheet" href="../css/common/form.css">
+</head>
+<body>
+    <header>
+        <a class="btn-back" href="empresa.html">Volver</a>
+        <h1>Agregar empresa</h1>
+        <p>llena los campos requeridos</p>
+    </header>
+
+    <div class="form-container container">
+        <form id="form-empresa">
+            <div class="input-field">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" type="text" id="nombre" placeholder="Name of your enterprise" required>
+            </div>
+
+            <div class="input-field">
+                <label for="biografia">Biografía</label>
+                <textarea class="form-control" rows="2" id="biografia" placeholder="Anything You want" required ></textarea>
+            </div>
+
+            <div class="input-field">
+                <label for="direccion">Dirección</label>
+                <input class="form-control" id="direccion" type="text" placeholder="Wherever You are" required>
+            </div>
+
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</body>
+<script src="/js/empresaAdd.js"></script>
+</html>

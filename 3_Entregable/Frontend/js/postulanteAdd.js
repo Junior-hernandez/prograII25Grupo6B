@@ -12,8 +12,8 @@ document.getElementById("form-postulante").addEventListener("submit", async func
     };
 
     // consulta fetch
-
-    const url = "mi url";
+        
+    const url = "API's URL"; // http://localhost:8080/postulante
     try{
         const response = await fetch(url, {
             method: "POST",
@@ -23,8 +23,8 @@ document.getElementById("form-postulante").addEventListener("submit", async func
 
         if(!response.ok) throw new Error("Error al consultar la API");
 
-        alert("Postulante creado excitantemente!")
-        window.location.href = "postulante.html";
+        alert("Postulante creado excitantemente!");
+        window.location.href = "../pages/postulante.html";
         
     }catch(error){
         console.log("Hubo un error.", error);

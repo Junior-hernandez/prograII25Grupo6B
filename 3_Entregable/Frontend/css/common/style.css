@@ -1,20 +1,25 @@
 /* configuracion */
     :root{
+        /* colores principales */
         --color-primary-2: #247ac5;
         --color-primary: #0a9b6b;
         --color-primary-dark: #2f5bad;
         --color-primary-dark: #1b9fa1;
+
+        /* colores de fondo */
         --color-secondary: #2a363b;
         --color-background-dark:  #11161b;
         --color-font-light: #fff;
         --color-font-dark: #000;
 
+        /* colores de tablas */
         --color-table-background: #212a33;
         --color-table-header: #00070d;
         --color-table-border: rgb(0, 97, 177);
     }
 
-/* snippet para aplicar box-sizing por default */
+/* snippet para aplicar box-sizing por default  / Normalize */
+
     html {
         box-sizing: border-box; 
         font-size: 62.5%;
@@ -22,7 +27,7 @@
     *, *:before, *:after {
         box-sizing: inherit; 
     }
-    body{
+    body {
         background-color: var(--color-background-dark);
         color: white;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,7 +37,8 @@
     }
 
 /* Utilidades */
-    .btn-primary{
+
+    .btn-primary {
         background-color: var(--color-primary);
         color: #ffffff;
         margin: 0 3rem;
@@ -40,26 +46,27 @@
         border-radius: 3rem;
         transition: background-color .3s ease-out;
     }
-    .btn-primary:hover{
+    .btn-primary:hover {
         background-color: var(--color-primary-dark);
     }
     
-    .btn-back{
-        background-color: var(--color-secondary);
-        background-color: white;
+    .btn-back {
+        background-color: #2f3031;
         color: #ffffff;
-        color: #000;
         margin: 0 3rem;
         padding: 1rem 2rem;
         border-radius: 3rem;
-        border: .2rem solid #11161b ;
+        border: .2rem solid #fff ;
         transition: background-color .3s ease-out;
     }
-    .btn-back:hover{
-        background-color: #2f3031;
-        color: white;
+    .btn-back:hover {
+        background-color: white;
+        color: black;
+        border: .2rem solid #11161b ;
     }
+
 /* Globales */
+
     .container-principal{
         margin: 0rem 1rem;
     }
@@ -97,6 +104,7 @@
 
 
 /* header */
+
     header{
         background-color: var(--color-primary);
         padding: 1rem 0rem;
@@ -120,7 +128,6 @@
         margin-top: 1rem;
     }
 
-
     .info{
        display: flex;
        justify-content: space-between;
@@ -133,6 +140,7 @@
     }
 
 /* tabla de contenido */
+
 table {
       border-collapse: collapse;
       width: 90%;
@@ -143,6 +151,7 @@ table {
       border: .1rem solid var(--color-table-border);
       padding: 1rem;
       text-align: left;
+      text-align: justify;
     }
     th {
       background-color: var(--color-table-header);
@@ -153,6 +162,7 @@ table {
     .td-acciones, .td-id{
         text-align: center;
         background-color: var(--color-table-header);
+        white-space: nowrap;
     }
 
     .btn-add{
@@ -170,6 +180,7 @@ table {
     }
 
 /* footer */
+
 footer{
     background-color: #0a0d10;
     padding: 1rem;
