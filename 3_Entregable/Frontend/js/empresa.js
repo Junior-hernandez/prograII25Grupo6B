@@ -35,6 +35,7 @@ fetch(url)
         const iconoEditar = document.createElement("i");
         iconoEditar.classList.add("fa", "fa-edit");
         btnEditar.appendChild(iconoEditar);
+        btnEditar.addEventListener("click", () => editarEmpresa(empresa.idEmpresa));
 
         const btnEliminar = document.createElement("button");
         btnEliminar.classList.add("btn-eliminar");
@@ -57,3 +58,8 @@ fetch(url)
     });
 })
 .catch(error => console.log("Hubo un error al ejecutar la función", error));
+
+
+function editarEmpresa(id){
+    window.location.href = `../pages/empresaEdit.html?id=${id}`;
+}

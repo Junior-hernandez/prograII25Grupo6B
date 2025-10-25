@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar empresa</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common/normalizer.css">
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/common/form.css">
+</head>
+<body>
+    <header>
+        <a class="btn-back" href="/pages/empresa.html">Volver</a>
+        <h1>Editar empresa</h1>
+        <p>Bienvenido al módoulo de editar empresa</p>
+    </header>
+
+    <div class="form-container container">
+        <form id="form-empresa-edit">
+            <div class="input-field">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" type="text" placeholder="Your company's name" required>
+            </div>
+
+            <div class="input-field">
+                <label for="biografia">Biografía</label>
+                <textarea class="form-control" name="biografia" id="biografia" rows="3" placeholder="Anything You want" required></textarea>
+            </div>
+
+            <div class="input-field">
+                <label for="direccion">Dirección</label>
+                <textarea class="form-control" name="direccion" id="direccion" rows="2" placeholder="Wherever you are" required></textarea>
+            </div>
+
+            <div class="btn-container">
+                <a class="boton btn-cancelar" href="/pages/empresa.html" >Cancelar</a>
+                <button class="boton btn-guardar" type="submit" >Guardar</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+<script src="/js/empresaEdit.js"></script>
+</html>

@@ -1,9 +1,11 @@
 /**
-    JS para editar un postulante 
-    se llenan los campos del postulante con el id especificado (GET a al API)
-    luego al guardarse se envía una petición a la API para guardarlo
-    y finalmente se redirige a la página de postulantes
+ ====================== JS para editar un postulante. ======================
+ - se llenan los campos del postulante con el id especificado (GET a al API)
+ - luego al guardarse se envía una petición a la API para guardarlo
+ - y finalmente se redirige a la página de postulantes
+ ============================================================================
 */
+
 
 // Obtenemos el id del postulante desde los parámetros de la URL
 const params = new URLSearchParams(location.search);
@@ -13,6 +15,10 @@ if(!idPostulante){
     alert("No se pasó el id del postulante");
     window.location.href = "../pages/postulante.html";
 }
+
+
+const nombre = document.getElementById("nombre");
+const biografia = document.getElementById("biografia");
 
 // Obtenemos el postulante desde la API
 const url = "../src/mockData/postulante.json"; // `http://localhost:8080/postulante/${idPostulante}`;
@@ -28,30 +34,33 @@ fetch(url)
     return response.json();
 })
 .then(postulante => {
-    document.getElementById("nombre").value = postulante.nombre;
-    document.getElementById("biografia").value = postulante.biografia;
+    nombre.value = postulante.nombre;
+    biografia.value = postulante.biografia;
 })
 .catch(error => console.log("Error al obtener el postulante", error));
+
+
+// Cambiar el background-color del input al modificar algún campo
+[nombre, biografia].forEach(input => {
+    input.addEventListener("change", item => 
+        item.target.style.backgroundColor = "#aaf0c0ff");
+});
+
 
 
 // Eperamos a que se envíe el formulario
 document.getElementById("form-postulante-edit").addEventListener("submit", async function(e){
     e.preventDefault(); // Evitamos que la página se recargue
 
-
-    // Obtenemos los datos del postulante actualizados
-    const name = document.getElementById("nombre").value.trim();
-    const biography = document.getElementById("biografia").value.trim();
-
     const postulante = {
         idPostulante: parseInt(idPostulante),
-        nombre: name,
-        biografia: biography
+        nombre: nombre.value.trim(),
+        biografia: biografia.value.trim()
     };
-
     
     // Hacemos el PUT en la API
     try{
+
         const url = "PUT API's URL"; // `http://localhost:8080/postulante/${idPostulante}`;
 
         const response = await fetch(url, { 
