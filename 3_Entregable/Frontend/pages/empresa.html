@@ -6,26 +6,35 @@
     <title>Empresa</title>
 
     <link rel="stylesheet" href="/css/common/normalizer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="../css/common/style.css">
 </head>
 <body>
     <header>
         <a class="btn-back" href="index.html">Volver</a>
+
         <h1>Empresas</h1>
         <p>Bienvenido al módulo de mpresas</p>
+        
     </header>
     <section class="container">
         <h2>Lista de empresas</h2>
-        <p>Gestiona las empresas desde acá</p>
+
+        <div class="info">
+            <p>Gestiona las empresas desde acá</p>
+            <button id="btn-add" class="btn-add"> <i class="fa fa-plus"></i></button>
+        </div>
+
         <hr>
 
-        <div class="table-container">
+        <div class="table-container container">
             <table>
                 <thead>
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Biografía</th>
                     <th>Dirección</th>
+                    <th>Acciones</th>
                 </thead>
                 <tbody id="table-body"></tbody>
             </table>
@@ -37,5 +46,5 @@
 
     <footer>&copy 6th Group</footer>
 </body>
-<script src="../js/empresa.js"></script>
+<script src="/js/empresa.js"></script>
 </html>

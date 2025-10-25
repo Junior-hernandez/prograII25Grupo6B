@@ -63,7 +63,7 @@ fetch(url)
 
 // Funciones
 function editarPostulante(id){
-    alert(`Aqui se editaría el postulante con id: ${id}`);
+    window.location.href = `../pages/postulanteEdit.html?id=${id}`;
 }
 
 function eliminarPostulante(id){
