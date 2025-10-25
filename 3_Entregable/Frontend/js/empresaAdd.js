@@ -20,7 +20,7 @@ formEmpresa.addEventListener("submit", async function(e){
     try{
         const response = await fetch(url, {
             method: "POST",
-            headers: {"ContentType": "application/json"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(empresa)
         });
 

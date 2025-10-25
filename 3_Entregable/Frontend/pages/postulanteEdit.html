@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar postulante</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common/normalizer.css">
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/common/form.css">
+</head>
+<body>
+    <header>
+        <a  class="btn-back" href="postulante.html">Volver</a>
+        <h1>Editar postulante</h1>
+        <p>Llena los campos que quieres cambiar</p>
+    </header>
+
+    <div class="form-container container">
+        <form id="form-postulante-edit">
+
+            <div class="input-field">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" type="text" placeholder="Your name" required>
+            </div>
+
+            <div class="input-field">
+                <label for="nombre">Biografia</label>
+                <textarea class="form-control" id="biografia" rows="2" type="text" placeholder="Anything you want" required></textarea>
+            </div>
+
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</body>
+<script src="../js/postulanteEdit.js"></script>
+</html>
