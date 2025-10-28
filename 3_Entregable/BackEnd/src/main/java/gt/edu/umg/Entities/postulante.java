@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Postulantes")
-public class postulante implements Serializable {
+public class Postulante implements Serializable {
 
     @Id
 	@Column (name="Idpostulante")
@@ -25,10 +25,10 @@ public class postulante implements Serializable {
     private String biografia;
     
    
-    public postulante() {
+    public Postulante() {
     }
 
-    public postulante(String nombre, String biografia) {
+    public Postulante(String nombre, String biografia) {
         this.nombre = nombre;
         this.biografia = biografia;
     }
