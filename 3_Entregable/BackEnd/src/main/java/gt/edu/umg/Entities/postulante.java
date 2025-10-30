@@ -10,6 +10,7 @@ import javax.persistence.Table;
 /**
  * @author biron
  */
+
 @Entity
 @Table(name = "Postulantes")
 public class Postulante implements Serializable {
