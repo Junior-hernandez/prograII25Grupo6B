@@ -5,28 +5,32 @@
 package gt.edu.umg.Repositories;
 
 import gt.edu.umg.Entities.Empresa;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import java.util.List;
-import javax.persistence.Query;
-
 /**
  *
  * @author Deyvid Hernández
  */
 
-public class EmpresaRepository implements PanacheRepository<Empresa> { 
+public class EmpresaRepository implements PanacheRepositoryBase<Empresa, Integer> { 
+	
 	public List<Empresa> GetAll(){
-		try{
-			Query query = getEntityManager().createQuery("SELECT e FROM Empresas e");
-			
-			return query.getResultList();
-			
-		}catch(Exception e){
-			System.out.println("HUBO UN ERROR " + e);
-			return null;
-		}
-		
+		return listAll();
 	}
 	
+	public Empresa getById(int id){
+		return findById(id);
+	}
 	
+	public void add(Empresa empresa){
+		persist(empresa);
+	}
+	   
+	public void edit(Empresa empresa){
+		getEntityManager().merge(empresa);
+	}
+	
+	public void delte(int id){
+		deleteById(id);
+	}
 }
