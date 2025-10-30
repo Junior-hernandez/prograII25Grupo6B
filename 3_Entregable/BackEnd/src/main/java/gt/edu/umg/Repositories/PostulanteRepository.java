@@ -1,6 +1,6 @@
 package gt.edu.umg.repositories;
 
-import gt.edu.umg.entities.Postulante;
+import gt.edu.umg.Entities.Postulante;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.List;
