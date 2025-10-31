@@ -1,4 +1,4 @@
-package gt.edu.umg.repositories;
+package gt.edu.umg.Repositories;
 
 import gt.edu.umg.Entities.Postulante;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;

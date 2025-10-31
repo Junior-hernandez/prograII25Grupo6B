@@ -7,11 +7,13 @@ package gt.edu.umg.Repositories;
 import gt.edu.umg.Entities.Empresa;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 /**
  *
  * @author Deyvid Hernández
  */
 
+@RequestScoped
 public class EmpresaRepository implements PanacheRepositoryBase<Empresa, Integer> { 
 	
 	public List<Empresa> GetAll(){

@@ -19,13 +19,13 @@ public class Empresa  implements Serializable {
 	@Column (name="IdEmpresa")
 	private  int Id;
 	
-	@Column (name="Nombre")
+	@Column (name="Nombre", columnDefinition = "nvarchar(50)")
 	private String Nombre;
 	
-	@Column (name="Biografia")
+	@Column (name="Biografia", columnDefinition = "nvarchar(250)")
 	private String Biografia;
 	
-	@Column (name="Direccion")
+	@Column (name="Direccion", columnDefinition = "nvarchar(120)")
 	private String Direccion;
 
 	public int getId() {
