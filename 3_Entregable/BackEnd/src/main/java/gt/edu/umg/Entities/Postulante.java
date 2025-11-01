@@ -4,6 +4,8 @@ package gt.edu.umg.Entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,13 +18,14 @@ import javax.persistence.Table;
 public class Postulante implements Serializable {
 
     @Id
-	@Column (name="Idpostulante")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column (name="IdPostulante")
 	private  int id;
 
-    @Column(name = "Nombre", nullable = false, length = 50)
+    @Column(name = "Nombre", nullable = false, columnDefinition = "nvarchar(50)")
     private String nombre;
 
-    @Column(name = "Biografia", nullable = false, length = 250)
+    @Column(name = "Biografia", nullable = false, columnDefinition = "nvarchar(250)")
     private String biografia;
     
    
