@@ -32,7 +32,7 @@ public class EmpresaRepository implements PanacheRepositoryBase<Empresa, Integer
 		getEntityManager().merge(empresa);
 	}
 	
-	public void delte(int id){
+	public void delete(int id){
 		deleteById(id);
 	}
 }

@@ -6,7 +6,6 @@ package gt.edu.umg.Controllers;
 
 import gt.edu.umg.Entities.Empresa;
 import gt.edu.umg.Repositories.EmpresaRepository;
-import java.awt.PageAttributes.MediaType;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
