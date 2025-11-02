@@ -71,7 +71,7 @@ document.getElementById("form-postulante-edit").addEventListener("submit", async
 
         if(!response.ok) throw new Error("No se pudo editar el postulante");
         
-        alert("Postulante editado excitantemente!");
+        alert("Postulante editado exitosamente!");
         window.location.href = "../pages/postulante.html";
 
     }catch(error){

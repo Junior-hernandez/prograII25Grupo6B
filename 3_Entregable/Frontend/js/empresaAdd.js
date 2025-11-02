@@ -26,7 +26,7 @@ formEmpresa.addEventListener("submit", async function(e){
 
         if(!response.ok) throw new Error("Hubo un error al consultar la API");
 
-        alert("Empresa agregada excitantemente!");
+        alert("Empresa agregada exitosamente!");
         window.location.href = "../pages/empresa.html";
     }catch(error){
         console.log("Hubo un error al consultar la API", error);

@@ -23,7 +23,7 @@ document.getElementById("form-postulante").addEventListener("submit", async func
 
         if(!response.ok) throw new Error("Error al consultar la API");
 
-        alert("Postulante creado excitantemente!");
+        alert("Postulante creado exitosamente!");
         window.location.href = "../pages/postulante.html";
         
     }catch(error){
