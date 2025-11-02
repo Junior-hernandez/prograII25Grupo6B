@@ -33,43 +33,67 @@ public class EmpresasController {
 	
 	@GET
 	public Response getAll(){
-		var empresas = _repo.GetAll();
+	try{
+			var empresas = _repo.GetAll();
 		return Response.ok().entity(empresas).build();
+	}catch(Exception ex){
+		System.out.println(ex);
+	}
+		return Response.serverError().build();
 	}
 	
 	@GET
 	@Path("/{id}")
 	public Response getById(@PathParam("id") int id){
-		var empresa = _repo.getById(id);
+		try{
+			var empresa = _repo.getById(id);
 		
-		return Response.ok().entity(empresa).build();
+			return Response.ok().entity(empresa).build();
+		}catch(Exception ex){
+			
+			return Response.serverError().build();
+		}
 	}
 	
 	@POST
 	@Transactional
 	public Response add(Empresa empresa){
 		
-		_repo.add(empresa);
+		try{
+			_repo.add(empresa);
 		
-		return Response.ok().build();
+			return Response.ok().build();
+		}catch(Exception ex){
+			return Response.serverError().build();
+			
+		}
 	}
 	
 	@PUT
 	@Transactional
 	public Response edit(Empresa empresa){
+		try{
+			
+			_repo.edit(empresa);
 		
-		_repo.edit(empresa);
-		
-		return Response.ok().build();
+			return Response.ok().build();
+		}catch(Exception ex){
+			return Response.serverError().build();
+			
+		}
 	}
 	
 	@DELETE
 	@Transactional
 	@Path("/{id}")
 	public Response delete(@PathParam("id") int id){
+		try{
+			
+			_repo.delete(id);
 		
-		_repo.delete(id);
-		
-		return Response.ok().build();
+			return Response.ok().build();
+		}catch(Exception ex){
+			return Response.serverError().build();			
+		}
 	}
 }

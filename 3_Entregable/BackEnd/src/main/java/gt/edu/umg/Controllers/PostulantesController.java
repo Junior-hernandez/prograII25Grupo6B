@@ -36,16 +36,22 @@ public class PostulantesController {
         try{
             List<Postulante> lstPostulante = postulanteRepository.findPostulante();
             
+			// Mapeamos la lista a String 
             ObjectMapper objMapper = new ObjectMapper();
             String jsonArray = objMapper.writeValueAsString(lstPostulante);
             
+			// Parseamos String a JSON Array
             JSONParser parser = new JSONParser();
             JSONArray jsonPostulante = (JSONArray) parser.parse(jsonArray);
             
+			// Añadimos propiedades y la lista
             JsonRespuesta.put("Estado", 1);
             JsonRespuesta.put("Mensaje", "consulta Exitosa");
             JsonRespuesta.put("postulantes",jsonPostulante );        
+			
+			// Retornamos un OK
             return Response.ok().entity(JsonRespuesta).build();
+			
         } catch (Exception e){
             JsonRespuesta.put("Estado", 0);
             JsonRespuesta.put("Mensaje", "consulta no Exitosa");
@@ -57,20 +63,22 @@ public class PostulantesController {
 	@Path("/{id}")
 	public Response getById(@PathParam("id") int id){		 
 		try{
-			JSONObject jsonRespuesta = new JSONObject();  
-			ObjectMapper objMapper = new ObjectMapper();
+			JSONObject jsonRespuesta = new JSONObject();
+			
 						
 			var postulante = postulanteRepository.findById(id);
 			
+			ObjectMapper objMapper = new ObjectMapper();
 			String jsonObject = objMapper.writeValueAsString(postulante);
 			
-			JSONParser parser = new JSONParser();
 			
+			JSONParser parser = new JSONParser();
 			JSONObject jsonPostulante = (JSONObject) parser.parse(jsonObject);
 			
 			jsonRespuesta.put("postulante", jsonPostulante);
 			
 			return Response.ok().entity(jsonPostulante).build();
+			
 		}catch(Exception ex){
 			var errorMessage = "Hubo un problema, vuelve a intentarlo más tarde";
 			return Response.serverError().entity(errorMessage).build();
