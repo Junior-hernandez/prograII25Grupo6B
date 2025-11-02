@@ -21,7 +21,7 @@ const direccion = document.getElementById("direccion");
 
 // Consultamos la empresa por su ID
 
-const url = "../src/mockData/empresa.json"; // `http://localhost:8080/empresa/${id}`;
+const url = `http://localhost:8080/empresas/${id}`;
 
 fetch(url)
 .then(response => {
@@ -49,7 +49,7 @@ document.getElementById("form-empresa-edit").addEventListener("submit", async fu
     e.preventDefault();
 
     const empresa = {
-        idEmpresa: parseInt(id),
+        id: parseInt(id),
         nombre: nombre.value.trim(),
         biografia: biografia.value.trim(),
         direccion: direccion.value.trim()
@@ -57,7 +57,7 @@ document.getElementById("form-empresa-edit").addEventListener("submit", async fu
 
     try{
 
-        const url = "API's URL"; // `http://localhost:8080/empresa/${id}`;
+        const url = `http://localhost:8080/empresas`;
 
         const response = await fetch(url, {
             method: "PUT",

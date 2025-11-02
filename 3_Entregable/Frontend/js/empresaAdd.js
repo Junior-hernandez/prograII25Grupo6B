@@ -15,7 +15,7 @@ formEmpresa.addEventListener("submit", async function(e){
 
     // Hacemos la petición a la API
     
-    const url = "API's Url"; // http://localhost:8080/empresa
+    const url =  "http://localhost:8080/empresas";
 
     try{
         const response = await fetch(url, {

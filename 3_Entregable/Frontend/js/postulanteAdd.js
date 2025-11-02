@@ -13,7 +13,7 @@ document.getElementById("form-postulante").addEventListener("submit", async func
 
     // consulta fetch
         
-    const url = "API's URL"; // http://localhost:8080/postulante
+    const url = "http://localhost:8080/postulantes"
     try{
         const response = await fetch(url, {
             method: "POST",

@@ -2,7 +2,7 @@ const tableBody = document.getElementById("table-body");
 
 document.getElementById("btn-add").addEventListener("click", () => window.location.href = "../pages/empresaAdd.html");
 
-const url = "../src/mockData/empresas.json";
+const url = "http://localhost:8080/empresas";
 
 fetch(url)
 .then(response =>{
@@ -16,7 +16,7 @@ fetch(url)
         
         const celdaId = document.createElement("td");
         celdaId.classList.add("td-id");
-        celdaId.textContent = empresa.idEmpresa;
+        celdaId.textContent = empresa.id;
         
         const celdaNombre = document.createElement("td");
         celdaNombre.textContent = empresa.nombre;
@@ -35,13 +35,14 @@ fetch(url)
         const iconoEditar = document.createElement("i");
         iconoEditar.classList.add("fa", "fa-edit");
         btnEditar.appendChild(iconoEditar);
-        btnEditar.addEventListener("click", () => editarEmpresa(empresa.idEmpresa));
+        btnEditar.addEventListener("click", () => editarEmpresa(empresa.id));
 
         const btnEliminar = document.createElement("button");
         btnEliminar.classList.add("btn-eliminar");
         const iconoEliminar = document.createElement("i");
         iconoEliminar.classList.add("fa", "fa-trash");
         btnEliminar.appendChild(iconoEliminar);
+        btnEliminar.addEventListener("click", () => eliminarEmpresa(empresa.id));
 
         celdaAcciones.appendChild(btnEditar);
         celdaAcciones.appendChild(btnEliminar);
@@ -62,4 +63,24 @@ fetch(url)
 
 function editarEmpresa(id){
     window.location.href = `../pages/empresaEdit.html?id=${id}`;
+}
+
+function eliminarEmpresa(id){
+
+    //Confirmación de eliminación
+    if(!confirm("Estas seguro de que quieres eliminar la empresa?, Esta acción no se puede deshacer")){
+        return;
+    }
+
+    fetch(`http://localhost:8080/empresas/${id}`, {
+        method: "DELETE"
+    }).then(response => {
+        if(!response.ok) throw new Error("Error al consultar la API");
+    
+        alert("Empresa eliminada con exito");
+        window.location.href = "/pages/empresa.html";
+    }).catch(error => {
+        console.error(error);
+        alert("Lo sentimos no se pudo eliminar la empresa :c");
+    });
 }

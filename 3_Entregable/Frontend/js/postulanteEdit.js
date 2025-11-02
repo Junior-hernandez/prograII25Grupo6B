@@ -21,7 +21,7 @@ const nombre = document.getElementById("nombre");
 const biografia = document.getElementById("biografia");
 
 // Obtenemos el postulante desde la API
-const url = "../src/mockData/postulante.json"; // `http://localhost:8080/postulante/${idPostulante}`;
+const url = `http://localhost:8080/postulantes/${idPostulante}`;
 fetch(url)
 .then(response =>{
     if(!response.ok) {
@@ -29,7 +29,7 @@ fetch(url)
         window.location.href = "../pages/postulante.html";
 
         throw new Error("Error al consultar la API");  
-    } 
+    }
 
     return response.json();
 })
@@ -53,7 +53,7 @@ document.getElementById("form-postulante-edit").addEventListener("submit", async
     e.preventDefault(); // Evitamos que la página se recargue
 
     const postulante = {
-        idPostulante: parseInt(idPostulante),
+        id: parseInt(idPostulante),
         nombre: nombre.value.trim(),
         biografia: biografia.value.trim()
     };
@@ -61,9 +61,9 @@ document.getElementById("form-postulante-edit").addEventListener("submit", async
     // Hacemos el PUT en la API
     try{
 
-        const url = "PUT API's URL"; // `http://localhost:8080/postulante/${idPostulante}`;
+        const url = `http://localhost:8080/postulantes/`;
 
-        const response = await fetch(url, { 
+        const response = await fetch(url, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(postulante)
