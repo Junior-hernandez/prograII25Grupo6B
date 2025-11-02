@@ -19,10 +19,11 @@ public class PostulanteRepository {
     public void Create(Postulante nuevoPostulante) {
         em.persist(nuevoPostulante);
     }
+    
 
     public List<Postulante> findPostulante() {
         try {
-            Query q = em.createQuery("SELECT p FROM Postulante p order by p.id desc");
+            Query q = em.createQuery("SELECT p FROM Postulante p");
             return q.getResultList();
         } catch (Exception e) {
             System.out.println("Error en findPostulante: " + e.getMessage());
@@ -63,4 +64,4 @@ public class PostulanteRepository {
         }
     }
 }
- 
+  

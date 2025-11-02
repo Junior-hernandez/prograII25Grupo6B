@@ -1,92 +1,123 @@
-package gt.edu.umg.controllers;
+package gt.edu.umg.Controllers;
 
 
-import gt.edu.umg.entities.Postulante;
-import javax.ws.rs.POST;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import gt.edu.umg.Entities.Postulante;
+import gt.edu.umg.Repositories.PostulanteRepository;
+import java.util.List;
 import javax.ws.rs.core.Response;
-import javax.inject.inject;
-import static javax.management.Query.gt;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Path;
+import javax.ws.rs.POST;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 /**
  * @author biron
  */
 
-@path("/Postulante")
+
+@Path("/postulantes")
 public class PostulantesController {
 
-    @inject
-    PostulanteRepository PostulanteRepository;
+    @Inject
+    PostulanteRepository postulanteRepository;
     
-    @POST
-    public Response saveNewPostulante(Postulante nuevoPostulante){
-    
-        JSONObject JsonRespuesta = new JSONObject();  
-
-     try{       
-        PostulanteRepository.Create(nuevoPostulante);
-        
-        JsonRespuesta.put("estado", 1);
-        JsonRespuesta.put("Mensaje", "Postulante Creado");
-        
-        return response.ok().entity(JsonRespuesta).build();
-        
-       
-     }   catch (Exception e){
-    
-             JsonRespuesta.put("estado", 0);
-             JsonRespuesta.put("Mensaje", "Postulante no Creado");
-             return response.serverError().entity(JsonRespuesta).build();
-    
-        }
-    }
-    @GET
-    public Response findPostulante(){
+	@GET
+    public Response getAll(){
         JSONObject JsonRespuesta = new JSONObject();
         
         try{
-            list<Postulante> lstPostulante = PostulanteRepository.findPostulante();
+            List<Postulante> lstPostulante = postulanteRepository.findPostulante();
             
-            ObjectMapper o objMapper = new ObjectMapper();
-            string jsonArray = objMapper.writeValueAsString(lstPostulante);
+            ObjectMapper objMapper = new ObjectMapper();
+            String jsonArray = objMapper.writeValueAsString(lstPostulante);
             
             JSONParser parser = new JSONParser();
             JSONArray jsonPostulante = (JSONArray) parser.parse(jsonArray);
             
             JsonRespuesta.put("Estado", 1);
             JsonRespuesta.put("Mensaje", "consulta Exitosa");
-            JsonRespuesta.put("Postulante",jsonpostulante );        
+            JsonRespuesta.put("postulantes",jsonPostulante );        
             return Response.ok().entity(JsonRespuesta).build();
         } catch (Exception e){
             JsonRespuesta.put("Estado", 0);
             JsonRespuesta.put("Mensaje", "consulta no Exitosa");
            return Response.serverError().build(); 
-        }
-        
-        return Response.ok().build();
-        
+        }        
     }
+	
+	@GET
+	@Path("/{id}")
+	public Response getById(@PathParam("id") int id){		 
+		try{
+			JSONObject jsonRespuesta = new JSONObject();  
+			ObjectMapper objMapper = new ObjectMapper();
+						
+			var postulante = postulanteRepository.findById(id);
+			
+			String jsonObject = objMapper.writeValueAsString(postulante);
+			
+			JSONParser parser = new JSONParser();
+			
+			JSONObject jsonPostulante = (JSONObject) parser.parse(jsonObject);
+			
+			jsonRespuesta.put("postulante", jsonPostulante);
+			
+			return Response.ok().entity(jsonPostulante).build();
+		}catch(Exception ex){
+			var errorMessage = "Hubo un problema, vuelve a intentarlo más tarde";
+			return Response.serverError().entity(errorMessage).build();
+		}
+	}
+	
+    @POST
+    public Response add(Postulante nuevoPostulante){
     
-    @PUT 
-    public Response editar(PostulanteEdit postulanteEdit) {
+        JSONObject JsonRespuesta = new JSONObject();  
+
+     try{       
+        postulanteRepository.Create(nuevoPostulante);
         
-        int id = postulanteEdit.getId();
-        if (postulanteRepository.GetById(id) == null) {
-           
+        JsonRespuesta.put("estado", 1);
+        JsonRespuesta.put("Mensaje", "Postulante Creado");
+        
+        return Response.ok().entity(JsonRespuesta).build();
+        
+       
+     }   catch (Exception e){
+    
+             JsonRespuesta.put("estado", 0);
+             JsonRespuesta.put("Mensaje", "Postulante no Creado");
+             return Response.serverError().entity(JsonRespuesta).build();
+    
+        }
+    }
+	
+    @PUT 
+	@Consumes(MediaType.APPLICATION_JSON)
+    public Response edit(Postulante postulante) {
+        
+        int id = postulante.getId();
+        if (postulanteRepository.findById(id) == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         
-        postulanteRepository.Edit(postulanteEdit);
-        
+        postulanteRepository.Edit(postulante);
         return Response.noContent().build();
     }
 
-    @DELETE 
-    public Response eliminar(PostulanteDeleteRequest deleteRequest) {
-        
-        int id = deleteRequest.getId();
+    @DELETE
+	@Path("{id}")
+    public Response delete(@PathParam("id") int id) {
 
-        if (postulanteRepository.GetById(id) == null) {
+        if (postulanteRepository.findById(id) == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         
